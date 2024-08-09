@@ -5,3 +5,10 @@ Por meio do texto acima, é possível concluir que a Engenharia de Software exig
 "Within Google, we sometimes say, “Software engineering is programming integrated over time.” Programming is certainly a significant part of software engineering: after all, programming is how you generate new software in the first place. If you accept this distinction, it also becomes clear that we might need to delineate between programming tasks (development) and software engineering tasks (development, modification, maintenance). The addition of time adds an important new dimension to programming. Cubes aren’t squares, distance isn’t velocity. Software engineering isn’t programming."
 
 Após a leitura desse segundo texto, percebe-se que seu principal obejtivo é diferenciar programação de engenharia de software, mas ainda deixando claro que elas estão relacionadas. Programar é uma parte da engenharia de software, pois representa o processo de desenvolvimento, mas esta área ainda envolve os atos de modificar e sustentar, diferentemente da programação. Além de criar, engenheiros de software também são responsáveis por realizar mudanças constantemente e manter o software funcionando. É por meio deste fator que a engenharia de software se diferencia da programação e prova-se tão importante quanto.
+
+Comparando duas tecnologias em relação a requisitos não-funcionais: 
+Figma e Photoshop (ambas tecnologias de design gráfico)
+Para aqueles que não possuem tanta experiência no design gráfico, o Photoshop pode parecer mais complexo, enquanto o Figma destaca-se por maior facilidade de uso. No entanto, é interessante considerar que, apesar de ambos serem ferramentas de design gráfico, o Figma e o Photoshop possuem públicos-alvos diferentes. O Photoshop é mais adequado para edições profissionais de fotografias, criação de logos e imagens para publicidade, enquanto o Figma é ideal para designers, desenvolvedores web e empresas de todos os tamanhos e segmentos com necessidades de peças de marketing e seu negócio. É essencial levar isso em considerção quando for necessário escolher uma das duas tecnologias. 
+
+
+
