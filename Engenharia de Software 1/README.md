@@ -27,3 +27,4 @@ Iniciando essa comparação pelo desempenho de ambas as ferramentas,o Zoom é co
 Atividade 3:
 
 complexidade x escalabilidade 
+requisitos não funcionais que o Youtube ganha ou perde
