@@ -26,5 +26,38 @@ Iniciando essa comparação pelo desempenho de ambas as ferramentas,o Zoom é co
 
 Atividade 3:
 
-complexidade x escalabilidade 
-requisitos não funcionais que o Youtube ganha ou perde
+Analisando a arquitetura do Reddit:
+
+https://x.com/alexxubyte/status/1795825665016787324 (Referência)
+
+Escalabilidade:
+É possível começar essa análise explicando que a arquitetura do Reddit é organizada em microserviços, ou seja, diferentes partes do sistema funcionam de forma independente, mas colaboram para fornecer dados aos utilizadores. Em vez de haver um único ponto central para lidar com todos os pedidos de dados, cada serviço específico pode ser ampliado separadamente conforme necessário. Dando continuidade, essa arquitetura é federada por GraphQL, que é uma linguagem de consulta para APIs que permite que os clientes peçam exatamente os dados dos quais precisam, e em que formato precisam. Isso torna a troca de informações entre o frontend e o backend mais eficiente. 
+Por fim, a utilização de uma rede como a Fastly e da tecnologia de load balancer permite que o conteúdo do Reddit (como imagens, vídeos e páginas) seja distribuído de forma equilibrada para vários servidores ao redor do mundo, e, quando alguém acessa a rede social, o conteúdo é carregado a partir do servidor mais próximo dessa pessoa, o que torna o carregamento mais rápido e eficiente e evita sobrecargas em servidores individuais, mesmo com muitos utilizadores ao mesmo tempo. Embora escalável, a complexidade da arquitetura do Reddit aumenta com a necessidade de coordenar múltiplos serviços federados, o que pode introduzir latências adicionais.
+
+Segurança:
+Quanto à questão da segurança, a infraestrutura do Reddit está hospedada na AWS e é gerida pelo Kubernetes, o que leva ela a fornecer mecanismos robustos de segurança, como autenticação, autorização e monitoramento. Somado a isso, o uso de GraphQL permite que a segurança seja gerida de forma centralizada em pontos específicos do sistema, onde é possível controlar detalhadamente quem pode acessar quais dados. Isso significa que o Reddit pode definir, de maneira muito precisa, quais utilizadores têm permissão para ver ou modificar diferentes partes das informações na plataforma.
+No entanto, a grande quantidade de serviços expostos pode aumentar a superfície de ataque, exigindo medidas de segurança severas em cada ponto de interação.
+
+Consistência:
+O Cassandra é utilizado para armazenar dados de forma distribuída, enquanto o PostgreSQL é usado para transações. O PostgreSQL garante que todas as operações sejam concluídas corretamente e os dados permaneçam seguros e consistentes, mas o Cassandra oferece uma consistência que pode demorar um pouco para se estabilizar. Devido a esse fator, algumas operações podem ter consistência eventual, o que pode ser problemático em cenários que exigem consistência forte.
+
+Flexibilidade:
+A arquitetura modular do Reddit facilita a adição e a remoção de serviços conforme as necessidades mudam. Servidores podem ser adicionados ou removidos conforme demanda, e isso permite que a plataforma siga rápida e responsiva, mesmo durante picos de tráfego ou falhas em servidores individuais. Ademais, a utilização de GraphQL permite uma grande flexibilidade na maneira como os dados são requisitados e agregados, pois ele facilita o agrupamento de dados de várias fontes diferentes, sendo possível personalizar as respostas conforme necessário. 
+Apesar de alta, essa flexibilidade pode ser limitada pela necessidade de garantir a integração e a comunicação eficientes entre múltiplos serviços.
+
+Performance:
+A inclusão de caches com Memcached pode reduzir a latência das operações mais comuns, o que melhora o desempenho geral. O Memcached é um sistema de cache em memória de alto desempenho. Ele é usado para armazenar dados temporariamente na memória RAM, o que permite o acesso a tais dados de forma muito rápida. Isso é especialmente útil para que o Reddit possa funcionar adequadamente para usuários que acessam informações frequentemente, reduzindo a necessidade de consultar um banco de dados ou uma API repetidamente. De forma complementar, novamente, o uso de load balancer e Fastly evita sobrecargas e mantém o rápido desempenho do site. 
+Apesar desses fatores que contribuem para que o Reddit seja caracterizado por um bom desempenho, a comunicação entre múltiplos serviços pode introduzir overhead, especialmente se as chamadas forem síncronas e frequentes.
+
+Qualidade:
+O uso de ferramentas de deployment, ou seja, programas ou plataformas que automatizam e gerenciam o processo de tornar um software disponível para os utilizadores, como Spinnaker e Terraform, garante que as atualizações do Reddit sejam implementadas de forma consistente e com alta qualidade. Além disso, por meio do uso de soluções como Prometheus, a qualidade do serviço da plataforma pode ser constantemente monitorada e ajustada conforme necessário. O único porém para a qualidade do Reddit é que a dificuldade de manutenção está presente como um problema dessa arquitetura.
+
+Velocidade:
+O uso de tecnologias modernas como TypeScript e jQuery no frontend do Reddit contribui para a velocidade de interação e carregamento da interface, o uso de cache com Memcached e da Fastly otimizam a velocidade de resposta da plataforma e, para completar a parte positiva, a utilização de job workers assíncronos (programas que realizam tarefas em segundo plano, independentemente da execução principal de uma aplicação) melhora a capacidade do sistema de lidar com tarefas demoradas sem impactar a experiência do utilizador. Como ponto negativo, há o fato de que pode ser possível reconhecer latência pela necessidade de coordenação entre diferentes microserviços.
+
+Confiabilidade:
+A arquitetura distribuída, juntamente com o uso do Kubernetes, garante que o Reddit mantenha alta disponibilidade e confiabilidade. O Kubernetes gerencia automaticamente os recursos, redimensiona a infraestrutura conforme necessário e substitui rapidamente qualquer parte que falhe, evitando interrupções. Logo, mesmo em caso de problemas técnicos, o Reddit pode continuar funcionando sem que os utilizadores percebam falhas.
+Apesar dos aspectos positivos, a confiabilidade do Reddit acaba sendo dependente da infraestrutura fornecida por terceiros, como a AWS e a Fastly, o que pode ser um ponto de falha externa.
+
+Conclusão:
+A arquitetura do Reddit reflete uma série de compromissos bem calculados entre os diferentes aspetos não-funcionais, apesar das concessões em áreas como consistência estrita e simplicidade operacional. O uso do Cassandra e de sistemas de cache como Memcached destaca a prioridade dada à velocidade de resposta, essencial para uma grande base de utilizadores, mesmo que isso implique aceitar algum grau de inconsistência. Ao mesmo tempo, a segurança é garantida por meio de autenticação, autorização e controle de acesso baseado em funções, proporcionando proteção robusta dos dados dos utilizadores sem sacrificar a flexibilidade necessária para um desenvolvimento ágil. Além disso, a utilização de DevOps e ferramentas de automação de infraestrutura, juntamente com metodologias ágeis, permite ao Reddit lançar novas funcionalidades rapidamente, mantendo a qualidade do produto com práticas rigorosas de revisão de código e monitoramento contínuo. Finalmente, é possível afirmar que o Reddit possui uma arquitetura que condiz com as propostas da plataforma. Os desafios relacionados à complexidade, consistência e latência precisam ser geridos com cuidado, mas eles não impedem os usuários do Reddit de terem uma experiência agradável ao interagir com a rede social. É possível divertir-se e informar-se sem grandes complicações.
