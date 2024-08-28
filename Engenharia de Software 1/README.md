@@ -1,4 +1,4 @@
-###Atividade 1:
+Atividade 1:
 
 "We see three critical differences between programming and software engineering: time, scale, and the trade-offs at play. On a software engineering project, engineers need to be more concerned with the passage of time and the eventual need for change. In a software engineering organization, we need to be more concerned about scale and efficiency, both for the software we produce as well as for the organization that is producing it. Finally, as software engineers, we are asked to make more complex decisions with higher-stakes outcomes, often based on imprecise estimates of time and growth."
 
@@ -61,3 +61,129 @@ Apesar dos aspectos positivos, a confiabilidade do Reddit acaba sendo dependente
 
 Conclusão:
 A arquitetura do Reddit reflete uma série de compromissos bem calculados entre os diferentes aspetos não-funcionais, apesar das concessões em áreas como consistência estrita e simplicidade operacional. O uso do Cassandra e de sistemas de cache como Memcached destaca a prioridade dada à velocidade de resposta, essencial para uma grande base de utilizadores, mesmo que isso implique aceitar algum grau de inconsistência. Ao mesmo tempo, a segurança é garantida por meio de autenticação, autorização e controle de acesso baseado em funções, proporcionando proteção robusta dos dados dos utilizadores sem sacrificar a flexibilidade necessária para um desenvolvimento ágil. Além disso, a utilização de DevOps e ferramentas de automação de infraestrutura, juntamente com metodologias ágeis, permite ao Reddit lançar novas funcionalidades rapidamente, mantendo a qualidade do produto com práticas rigorosas de revisão de código e monitoramento contínuo. Finalmente, é possível afirmar que o Reddit possui uma arquitetura que condiz com as propostas da plataforma. Os desafios relacionados à complexidade, consistência e latência precisam ser geridos com cuidado, mas eles não impedem os usuários do Reddit de terem uma experiência agradável ao interagir com a rede social. É possível divertir-se e informar-se sem grandes complicações.
+
+
+Atividade 4:
+
+Classes UML e código Java
+Contexto: Classes necessárias para construir um sistema de gestão de um restaurante.
+
+(O diagrama de classes UML está na pasta Imagens)
+
+Código Java:
+Classe Prato: 
+public class Prato {
+    private String nome;
+    private double preço;
+    private String descrição;
+    
+    public Prato(String nome, double preço, String descrição) {
+        this.nome = nome;
+        this.preço = preço;
+        this.descrição = descrição;
+    }
+    
+    public String getNome(){
+        return "Nome: " + nome;
+    }
+    
+    public String getPreco(){
+        return "Preço: " + preço;
+    }
+            
+    public String getDescricao(){
+        return "Descrição: " + descrição;
+    }
+   
+    void atualizarPreco(double novoPreço){
+        this.preço = novoPreço;
+    }
+    
+    void atualizarNome(String novoNome){
+        this.nome = novoNome;
+    }
+    
+    void atualizarDescricao(String novaDescrição){
+        this.descrição = novaDescrição;
+    }
+   }
+
+Classe Pedido:
+import java.util.ArrayList;
+import java.util.List;
+
+public class Pedido {
+    private int id;
+    private String data;
+    private List<Prato> pratos;
+    
+    public Pedido(int id, String data){
+        this.id = id;
+        this.data = data;
+        this.pratos = new ArrayList<>();
+    }
+    
+    public double calcularTotal(){
+        return pratos.stream().mapToDouble(Prato::getPreco).sum();
+    }
+    
+    void adicionarPrato(Prato prato){
+        pratos.add(prato);
+    }
+    
+    void removerPrato(Prato prato){
+        pratos.remove(prato);
+    }
+    
+    public String getId(){
+        return "Id: " + id;
+    }
+    
+    public String getData(){
+        return "Data: " + data;
+    }
+    
+    public List<Prato> getPratos(){
+        return pratos;
+    }
+}
+
+Classe Cliente:
+import java.util.ArrayList;
+import java.util.List;
+
+public class Cliente {
+    private String nome;
+    private String contato;
+    private List<Pedido> pedidos;
+    
+    public Cliente(String nome, String contato) {
+        this.nome = nome;
+        this.contato = contato;
+        this.pedidos = new ArrayList<>();
+    }
+    
+    public String getNumeroDePedidos(){
+        return "Número de pedidos: " + pedidos.size();
+    }
+    
+    public String getNome(){
+        return "Nome: " + nome;
+    }
+    
+    public String getContato(){
+        return "Contato: " + contato;
+    }
+    
+    public List<Pedido> getPedidos(){
+        return pedidos;
+    }
+    
+    void adicionarPedido(Pedido pedido){
+        pedidos.add(pedido);
+    }
+    
+    void atualizarContato(String novoContato){
+        this.contato = novoContato;
+}
+}
