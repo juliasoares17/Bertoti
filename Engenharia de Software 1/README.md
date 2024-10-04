@@ -95,15 +95,15 @@ public class Prato {
         return "Descrição: " + descrição;
     }
    
-    void atualizarPreco(double novoPreço){
+    void setPreco(double novoPreço){
         this.preço = novoPreço;
     }
     
-    void atualizarNome(String novoNome){
+    void setNome(String novoNome){
         this.nome = novoNome;
     }
     
-    void atualizarDescricao(String novaDescrição){
+    void setDescricao(String novaDescrição){
         this.descrição = novaDescrição;
     }
    }
@@ -143,8 +143,20 @@ public class Pedido {
         return "Data: " + data;
     }
     
+    public void setData(String novaData){
+        this.data = novaData;
+    }
+    
     public List<Prato> getPratos(){
         return pratos;
+    }
+    
+    public static void modificarPrato(ArrayList<String> pratos, int index, String novoPrato) {
+        if (index >= 0 && index < pratos.size()) {
+            pratos.set(index, novoPrato);
+        } else {
+            System.out.println("Índice fora dos limites da lista.");
+        }
     }
 }
 
@@ -175,6 +187,10 @@ public class Cliente {
         return "Contato: " + contato;
     }
     
+    public void setNome(String novoNome){
+        this.nome = novoNome;
+    }
+    
     public List<Pedido> getPedidos(){
         return pedidos;
     }
@@ -183,7 +199,8 @@ public class Cliente {
         pedidos.add(pedido);
     }
     
-    void atualizarContato(String novoContato){
+    void setContato(String novoContato){
         this.contato = novoContato;
 }
+    
 }
