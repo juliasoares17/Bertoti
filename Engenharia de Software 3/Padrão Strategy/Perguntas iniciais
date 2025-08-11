@@ -13,4 +13,4 @@ strategy atualmente vinculado por outro.
 
 
 O que é o anti-padrão Strategy?
-Uso de herança ou de diversos if/else. Ou seja, centralizar toda a lógica em um único lugar (ou em uma hierarquia fixa), duplicar código e alterar código antigo para adicionar comportamentos novos.
+Uso de herança ou de diversos if/else. Ou seja, centralizar toda a lógica em um único lugar (ou em uma hierarquia fixa), duplicar código e alterar código antigo para adicionar comportamentos novos. Mais rigidez e menos flexibilidade.
