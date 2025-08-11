@@ -1,11 +1,16 @@
 O que é o padrão de projeto?
-Um conjunto de boas práticas para resolver problemas em programação orientada a objetos que garante uma arquitetura mais organizada. 
+Um conjunto de boas práticas para resolver problemas em desenvolvimento de software, o que garante uma arquitetura mais organizada, escalável e de maior qualidade. 
 
 
 O que é o anti-padrão de projeto?
+Uma solução ou um conjunto de soluções, de forma semelhante a um padrão de projeto, mas que resolve problemas de forma ineficiente e gera consequências negativas a curto, médio e longo prazo.
 
 
-O que esse padrão Strategy?
+O que é o padrão Strategy?
+o Strategy é um padrão de projeto comportamental cujo objetivo é criar uma família de algoritmos, encapsular cada um deles e torná-los intercambiáveis, permitindo que o algoritmo varie independentemente dos clientes que o utilizam. O objeto original, chamado contexto, mantém uma referência a um objeto strategy e o delega à 
+execução do comportamento. Para alterar a maneira como o contexto executa seu trabalho, outros objetos podem substituir o objeto 
+strategy atualmente vinculado por outro. 
 
 
 O que é o anti-padrão Strategy?
+Uso de herança ou de diversos if/else. Ou seja, centralizar toda a lógica em um único lugar (ou em uma hierarquia fixa), duplicar código e alterar código antigo para adicionar comportamentos novos.
