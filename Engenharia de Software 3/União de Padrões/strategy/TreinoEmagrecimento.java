@@ -1,3 +1,5 @@
+package uniao_de_padroes.strategy;
+
 import uniao_de_padroes.core.PlanoTreino;
 
 public class TreinoEmagrecimento implements TreinoStrategy {
@@ -10,4 +12,5 @@ public class TreinoEmagrecimento implements TreinoStrategy {
         );
     }
 }
+
 
