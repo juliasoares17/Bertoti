@@ -1,3 +1,5 @@
+package uniao_de_padroes.core;
+
 public class PlanoTreino {
     private String nomeAluno;
     private String tipo;
@@ -21,4 +23,5 @@ public class PlanoTreino {
         return descricao;
     }
 }
+
 
