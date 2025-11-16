@@ -1,5 +1,3 @@
-package padrao_observer.antipattern.usuarios;
-
 public class UsuarioComum {
 
     private String nome;
@@ -13,3 +11,4 @@ public class UsuarioComum {
     };
 
 }
+
