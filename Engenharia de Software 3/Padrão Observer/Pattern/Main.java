@@ -1,3 +1,5 @@
+package padrao_observer.pattern;
+
 import padrao_observer.pattern.publisher.PortalDeNoticias;
 import padrao_observer.pattern.observer.UsuarioComum;
 import padrao_observer.pattern.observer.UsuarioPremium;
@@ -25,3 +27,4 @@ public class Main {
     }
 
 };
+
