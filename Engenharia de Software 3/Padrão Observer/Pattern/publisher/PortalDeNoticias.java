@@ -1,3 +1,5 @@
+package padrao_observer.pattern.publisher;
+
 import padrao_observer.pattern.observer.Observer;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,4 +31,5 @@ public class PortalDeNoticias implements Publisher {
     }
 
 }
+
 
