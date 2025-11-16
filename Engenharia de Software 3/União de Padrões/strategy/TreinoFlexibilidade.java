@@ -1,5 +1,3 @@
-package uniao_de_padroes.strategy;
-
 import uniao_de_padroes.core.PlanoTreino;
 
 public class TreinoFlexibilidade implements TreinoStrategy {
@@ -12,3 +10,4 @@ public class TreinoFlexibilidade implements TreinoStrategy {
         );
     }
 }
+
