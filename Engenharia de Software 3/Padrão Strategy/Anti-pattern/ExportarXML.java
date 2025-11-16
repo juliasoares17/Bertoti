@@ -1,6 +1,5 @@
 public class ExportarXML extends Exportador{
     
-    @Override
     public void exportar(String dados) {
 
         if (dados == null || dados.trim().isEmpty()){
@@ -13,3 +12,4 @@ public class ExportarXML extends Exportador{
     }
 
 }
+
