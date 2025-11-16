@@ -1,5 +1,3 @@
-package uniao_de_padroes;
-
 import java.util.Set;
 
 import uniao_de_padroes.core.PlanoTreino;
@@ -39,3 +37,4 @@ public class Main {
         gerenciador.notificar(plano3);
     }
 }
+
