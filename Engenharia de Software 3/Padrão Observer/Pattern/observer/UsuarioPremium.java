@@ -1,3 +1,5 @@
+package padrao_observer.pattern.observer;
+
 public class UsuarioPremium implements Observer {
     
     private String nome;
@@ -13,4 +15,5 @@ public class UsuarioPremium implements Observer {
         System.out.println("    Conteúdo: " + conteudo + "\n");
     };
 }
+
 
