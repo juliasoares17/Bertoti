@@ -1,3 +1,5 @@
+package padrao_observer.pattern.publisher;
+
 import padrao_observer.pattern.observer.Observer;
 
 public interface Publisher {
@@ -5,4 +7,5 @@ public interface Publisher {
     void removeObserver(Observer o);
     void notifyObservers(String titulo, String conteudo);    
 }
+
 
