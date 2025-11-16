@@ -1,5 +1,3 @@
-package uniao_de_padroes.observer;
-
 import java.util.Collections;
 import java.util.Set;
 import uniao_de_padroes.core.PlanoTreino;
@@ -31,3 +29,4 @@ public class UsuarioPremium implements Observer{
         return false;
     }
 }
+
