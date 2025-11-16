@@ -1,3 +1,5 @@
+package padrao_observer.antipattern.portal;
+
 import padrao_observer.antipattern.usuarios.UsuarioComum;
 import padrao_observer.antipattern.usuarios.UsuarioPremium;
 
@@ -28,4 +30,5 @@ public class PortalDeNoticiasAcoplado {
     };
     
 }
+
 
