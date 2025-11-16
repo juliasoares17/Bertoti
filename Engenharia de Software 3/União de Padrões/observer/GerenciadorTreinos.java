@@ -1,3 +1,5 @@
+package uniao_de_padroes.observer;
+
 import java.util.ArrayList;
 import java.util.List;
 import uniao_de_padroes.core.PlanoTreino;
@@ -33,6 +35,7 @@ public class GerenciadorTreinos {
         }
     }
 }
+
 
 
 
