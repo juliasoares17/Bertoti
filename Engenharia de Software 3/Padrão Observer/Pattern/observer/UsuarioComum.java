@@ -1,3 +1,5 @@
+package padrao_observer.pattern.observer;
+
 public class UsuarioComum implements Observer {
 
     private String nome;
@@ -12,4 +14,5 @@ public class UsuarioComum implements Observer {
     };
     
 }
+
 
