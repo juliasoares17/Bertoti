@@ -1,5 +1,3 @@
-package padrao_observer.pattern;
-
 import padrao_observer.pattern.publisher.PortalDeNoticias;
 import padrao_observer.pattern.observer.UsuarioComum;
 import padrao_observer.pattern.observer.UsuarioPremium;
@@ -25,4 +23,5 @@ public class Main {
             "Relatório aponta alta significativa nos investimentos em IA, robótica e computação em nuvem.");
 
     }
+
 };
